@@ -88,3 +88,78 @@ MonoBehaviour:
     LambangKartu: 0
     JenisKartu: 0
     GambarKartu: {fileID: 21300000, guid: 19b877347123ec647b4ffed9a72039f3, type: 3}
+  - KodeKartu: 16
+    NilaiKartu: 1
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: a1895d5f91cff9e42b89bbad1ce2a345, type: 3}
+  - KodeKartu: 17
+    NilaiKartu: 2
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 6d0a69434812b9b4bb6ff8572fe5ab3f, type: 3}
+  - KodeKartu: 18
+    NilaiKartu: 3
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 9f1bd5406edc9ce4bafe8dd3d90b7732, type: 3}
+  - KodeKartu: 19
+    NilaiKartu: 4
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 040951be8a79121418a9dff0e9238904, type: 3}
+  - KodeKartu: 20
+    NilaiKartu: 5
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: fab243045c9d2a6429174346d29a51fa, type: 3}
+  - KodeKartu: 21
+    NilaiKartu: 6
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 88b96480b305c4543b553af23b7f2ba6, type: 3}
+  - KodeKartu: 22
+    NilaiKartu: 7
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 4755e27cf4ce35c49add718cd1d2d9ef, type: 3}
+  - KodeKartu: 23
+    NilaiKartu: 8
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 7c80e04892d95744b94510e9ca48e589, type: 3}
+  - KodeKartu: 24
+    NilaiKartu: 9
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: b37f89e04d9a22e4faaca3f48fd16066, type: 3}
+  - KodeKartu: 25
+    NilaiKartu: 10
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: e0a7175ae71fde0459a6a8f325221f6e, type: 3}
+  - KodeKartu: 26
+    NilaiKartu: 11
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 651c7b5a5964bff4489d9e8646e102cb, type: 3}
+  - KodeKartu: 27
+    NilaiKartu: 12
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 6f6d0dc23dbe8894eac959bfce2ba703, type: 3}
+  - KodeKartu: 28
+    NilaiKartu: 13
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 0a075eb6b83ae7142ba313c1d1ef7c5a, type: 3}
+  - KodeKartu: 29
+    NilaiKartu: 14
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 3e96283a41da7604fb481b2d05558057, type: 3}
+  - KodeKartu: 30
+    NilaiKartu: 15
+    LambangKartu: 1
+    JenisKartu: 1
+    GambarKartu: {fileID: 21300000, guid: 17395f86dbe77c84ab10b699c0de6246, type: 3}
