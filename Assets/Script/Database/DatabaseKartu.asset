@@ -12,14 +12,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b66f11a0540ba348a96038248bd60d7, type: 3}
   m_Name: DatabaseKartu
   m_EditorClassIdentifier: 
-  Kartu:
-  - KodeKartu: 0
-    NilaiKartu: 0
-    LambangKartu: 
+  kartu:
+  - KodeKartu: 1
+    NilaiKartu: 1
+    LambangKartu: 0
     JenisKartu: 0
-    GambarKartu: {fileID: 0}
-  - KodeKartu: 0
-    NilaiKartu: 0
-    LambangKartu: 
-    JenisKartu: 1
-    GambarKartu: {fileID: 0}
+    GambarKartu: {fileID: 21300000, guid: 40411ac302b67d544ad0b875d85584be, type: 3}
+  - KodeKartu: 2
+    NilaiKartu: 2
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: 2a43fc8ee1b4a634c87b6304e285b544, type: 3}
+  - KodeKartu: 3
+    NilaiKartu: 3
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: 36eabb9d49db16b45bbba343cbf7fa08, type: 3}
+  - KodeKartu: 4
+    NilaiKartu: 4
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: 5fbee139371ad5d41a908ab28b4c0724, type: 3}
+  - KodeKartu: 5
+    NilaiKartu: 5
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: f840940cbaa6cfe4ea8b9f3b63347153, type: 3}
+  - KodeKartu: 6
+    NilaiKartu: 6
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: a94ac130434aa1a44bf2627c17f42be7, type: 3}
+  - KodeKartu: 7
+    NilaiKartu: 7
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: 0eba75910425ab449848019c5e270939, type: 3}
+  - KodeKartu: 8
+    NilaiKartu: 8
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: 5c2f21941f457f749add23a442de1ba3, type: 3}
+  - KodeKartu: 9
+    NilaiKartu: 9
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: a843e56ee60c88840bdb1e84ef702062, type: 3}
+  - KodeKartu: 10
+    NilaiKartu: 10
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: 8cc0ccdb28dc3c646975557f262a2d95, type: 3}
+  - KodeKartu: 11
+    NilaiKartu: 11
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: 598c9771adc742b45965f76cf07d838f, type: 3}
+  - KodeKartu: 12
+    NilaiKartu: 12
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: c83910edacc877f47b02db6afed69e0f, type: 3}
+  - KodeKartu: 13
+    NilaiKartu: 13
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: d133769155c40dc44ac860296570cbb7, type: 3}
+  - KodeKartu: 14
+    NilaiKartu: 14
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: 4db3b22024d9ec643bac1cf83c41bd8f, type: 3}
+  - KodeKartu: 15
+    NilaiKartu: 15
+    LambangKartu: 0
+    JenisKartu: 0
+    GambarKartu: {fileID: 21300000, guid: 19b877347123ec647b4ffed9a72039f3, type: 3}
