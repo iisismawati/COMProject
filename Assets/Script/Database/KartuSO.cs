@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu (fileName = "DatabaseKartu", menuName = "Database/Kartu")]
 public class KartuSO : ScriptableObject
 {
-    public List<DBKartu> Kartu = new List<DBKartu> ();
+    public List<DBKartu> kartu = new List<DBKartu> ();
 }
