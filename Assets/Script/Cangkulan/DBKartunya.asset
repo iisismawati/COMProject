@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e77e7bc011c9ed4097a516479a0ba3b, type: 3}
+  m_Name: DBKartunya
+  m_EditorClassIdentifier: 
+  KartuList:
+  - IDKartu: 1
+    JurKartu: AKN
+    NilaiKartu: 1
+    GbrKartu: {fileID: 21300000, guid: bae5502459e174f4588173b3c126228e, type: 3}
+  - IDKartu: 2
+    JurKartu: AKN
+    NilaiKartu: 2
+    GbrKartu: {fileID: 21300000, guid: cbaf5f0134463a449ad132e7b6725240, type: 3}
+  - IDKartu: 3
+    JurKartu: AKN
+    NilaiKartu: 3
+    GbrKartu: {fileID: 21300000, guid: 35668baa7fe207641970c01544de5409, type: 3}
+  - IDKartu: 4
+    JurKartu: AKN
+    NilaiKartu: 4
+    GbrKartu: {fileID: 21300000, guid: a304351e8f8d0ca4f8d70066182a936b, type: 3}
+  - IDKartu: 5
+    JurKartu: AKN
+    NilaiKartu: 5
+    GbrKartu: {fileID: 21300000, guid: 196fdada473915145a546b5eb28033fc, type: 3}
+  - IDKartu: 6
+    JurKartu: TKJ
+    NilaiKartu: 1
+    GbrKartu: {fileID: 21300000, guid: fabb4a8983014cf4fb4591368b7cb513, type: 3}
+  - IDKartu: 7
+    JurKartu: TKJ
+    NilaiKartu: 2
+    GbrKartu: {fileID: 21300000, guid: 33b5a79d3728fc04fad8c594c4356cd8, type: 3}
+  - IDKartu: 8
+    JurKartu: TKJ
+    NilaiKartu: 3
+    GbrKartu: {fileID: 21300000, guid: 2a0dcb3590fbf6942aa1370c1f15b166, type: 3}
+  - IDKartu: 9
+    JurKartu: TKJ
+    NilaiKartu: 4
+    GbrKartu: {fileID: 21300000, guid: 00a7fc5e6f26ff04985b2aa067e4323a, type: 3}
+  - IDKartu: 10
+    JurKartu: TKJ
+    NilaiKartu: 5
+    GbrKartu: {fileID: 21300000, guid: 611f45697a5336e429eb2cdab2e8e8fe, type: 3}
+  - IDKartu: 11
+    JurKartu: RPL
+    NilaiKartu: 1
+    GbrKartu: {fileID: 21300000, guid: b16d6832b38bc5540a2e017bc56d590b, type: 3}
+  - IDKartu: 12
+    JurKartu: RPL
+    NilaiKartu: 2
+    GbrKartu: {fileID: 21300000, guid: a153f15d84a293c4ba5e32cca78f5984, type: 3}
+  - IDKartu: 13
+    JurKartu: RPL
+    NilaiKartu: 3
+    GbrKartu: {fileID: 21300000, guid: e1c279fb3b8505c46bdf275acc2bc7cd, type: 3}
+  - IDKartu: 14
+    JurKartu: RPL
+    NilaiKartu: 4
+    GbrKartu: {fileID: 21300000, guid: 70bafef7c1bb2284c8aff51f7ae90bdd, type: 3}
+  - IDKartu: 15
+    JurKartu: RPL
+    NilaiKartu: 5
+    GbrKartu: {fileID: 21300000, guid: 9ceace9dc33ee0a46bc600d4e5de5378, type: 3}
+  - IDKartu: 16
+    JurKartu: TBG
+    NilaiKartu: 1
+    GbrKartu: {fileID: 21300000, guid: 81931455c5125c048be08abe38da2cb1, type: 3}
+  - IDKartu: 17
+    JurKartu: TBG
+    NilaiKartu: 2
+    GbrKartu: {fileID: 21300000, guid: ea6a4997608b42348baaed809f23dabf, type: 3}
+  - IDKartu: 18
+    JurKartu: TBG
+    NilaiKartu: 3
+    GbrKartu: {fileID: 21300000, guid: f1330a5f6b762764e8da94be6631b020, type: 3}
+  - IDKartu: 19
+    JurKartu: TBG
+    NilaiKartu: 4
+    GbrKartu: {fileID: 21300000, guid: 5c98b4c56ad513a47b8debcd8bdc0340, type: 3}
+  - IDKartu: 20
+    JurKartu: TBG
+    NilaiKartu: 5
+    GbrKartu: {fileID: 21300000, guid: a3f73c5748e20a54885ef9d7107b2986, type: 3}

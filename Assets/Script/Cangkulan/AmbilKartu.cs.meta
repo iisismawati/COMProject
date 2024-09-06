@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9f4da8e5015ec17448120cce675802b0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - kartuDatabase: {instanceID: 0}
+  - activePlayer1: {instanceID: 0}
+  - activePlayer2: {instanceID: 0}
+  - activePlayer3: {instanceID: 0}
+  - activePlayer4: {instanceID: 0}
+  - KartuDiTangan1: {instanceID: 0}
+  - KartuDiTangan2: {instanceID: 0}
+  - KartuDiTangan3: {instanceID: 0}
+  - KartuDiTangan4: {instanceID: 0}
+  - KartuDiDeck: {instanceID: 0}
+  - SisaKartu: {instanceID: 0}
+  - pesanAwalText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
