@@ -4,19 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
-using System;
-using System.Reflection;
-using UnityEngine.SocialPlatforms.Impl;
 
-public class Pemainnya : MonoBehaviour
+public class Pemainnya1 : MonoBehaviour
 {
     public DataPemain playerData;  // Menyimpan data pemain yang diassign
     public int lastDiceResult;     // Menyimpan hasil dadu terakhir
 
     // UI untuk menampilkan jurusan pemain
     public TMP_Text jurusanText;
-
-    public GameObject PionPemain;  // Referensi ke objek pion pemain
 
     // UI untuk menampilkan kartu di meja utama
     public Button[] tableCardButtons = new Button[3];  // Slot kartu di meja utama
@@ -25,25 +20,18 @@ public class Pemainnya : MonoBehaviour
     public Button[] additionalTableCardButtons = new Button[3];  // Slot kartu di meja tambahan
 
     public List<Kartunya> tableCards = new List<Kartunya>();  // Kartu di meja utama
-    public List<Kartunya> additionalTableCards = new List<Kartunya>();  // Kartu di meja tambahan
+    public List<Kartunya> additionalTableCards = new List<Kartunya>();  // Kartu di meja tambahan/ditangan
 
-    [SerializeField]
-    private List<Pemainnya> PemainLawan = new List<Pemainnya>();
-
-    private GameManager gameManager;
-
+    private GameManager1 gameManager1;
+   
     [SerializeField]
     private Image DekKartuBuang;  // Untuk Menampilkan Kartu yang Dibuang
 
-    private bool isChoosingToDiscard = false;  // Variabel untuk melacak apakah pemain sedang memilih kartu untuk dibuang
-    //private bool isChoosingToDiscardLawan = false;
-    private Pemainnya selectedOpponent;  // Menyimpan pemain lawan yang dipilih
-    public int Score;
-
+    private bool isChoosingToDiscard = false; // Variabel untuk melacak apakah pemain sedang memilih kartu untuk dibuang
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();  // Dapatkan referensi ke GameManager
-        AddCardButtonListeners();  // Pasang listener pada kartu
+        gameManager1 = FindObjectOfType<GameManager1>();  // Dapatkan referensi ke GameManager
+        AddCardButtonListeners();  // Tambahkan listener ke kartu
     }
 
     // Tambahkan listener untuk klik pada setiap kartu
@@ -51,7 +39,7 @@ public class Pemainnya : MonoBehaviour
     {
         for (int i = 0; i < tableCardButtons.Length; i++)
         {
-            int index = i;  // Variabel lokal untuk digunakan dalam lambda 
+            int index = i;  // Variabel lokal untuk digunakan dalam lambda
             tableCardButtons[i].onClick.AddListener(() => OnCardClicked(index, true));
         }
 
@@ -65,34 +53,37 @@ public class Pemainnya : MonoBehaviour
     // Fungsi ini dipanggil ketika kartu di meja diklik
     void OnCardClicked(int index, bool isMainTable)
     {
+        Debug.Log("Kartu diklik di index: " + index + " dari " + (isMainTable ? "Meja Utama" : "Meja Tambahan"));
+
         if (isChoosingToDiscard)
         {
-            // Logika untuk membuang kartu sendiri
-            if (isMainTable && index < tableCards.Count)
+            if (isMainTable)
             {
-                Kartunya card = tableCards[index];
-                Debug.Log("Kartu di meja utama yang dibuang: " + card.IDKartu);
-                DiscardCardFromTable(index, true);  // Buang kartu dari meja utama
+                if (index < tableCards.Count)
+                {
+                    Kartunya card = tableCards[index];
+                    Debug.Log("Kartu di meja utama yang dibuang: " + card.IDKartu);
+                    DiscardCardFromTable(index, true);
+                }
             }
-            else if (index < additionalTableCards.Count)
+            else
             {
-                Kartunya card = additionalTableCards[index];
-                Debug.Log("Kartu di meja tambahan yang dibuang: " + card.IDKartu);
-                DiscardCardFromTable(index, false);  // Buang kartu dari meja tambahan
+                if (index < additionalTableCards.Count)
+                {
+                    Kartunya card = additionalTableCards[index];
+                    Debug.Log("Kartu di meja tambahan yang dibuang: " + card.IDKartu);
+                    DiscardCardFromTable(index, false);
+                }
             }
 
-            // Pindahkan kartu dari meja tambahan ke meja utama jika diperlukan
+            // Periksa jika meja utama kosong setelah kartu dibuang dan isi dari meja tambahan
             if (additionalTableCards.Count > 0 && tableCards.Count < 3)
             {
                 MoveCardFromAdditionalToMainTable();
             }
         }
-        else
-        {
-            Debug.Log("Tidak ada tindakan yang diizinkan saat ini.");
-        }
     }
-    
+
     public void SetPlayerData(DataPemain dataPemain)
     {
         playerData = dataPemain;
@@ -173,8 +164,8 @@ public class Pemainnya : MonoBehaviour
         else
         {
             isChoosingToDiscard = false;  // Pemain tidak perlu membuang kartu lagi
-            gameManager.EndTurn();  // Panggil EndTurn untuk berpindah ke pemain berikutnya
-            gameManager.EnableRollDice();  // Aktifkan fungsi roll dice di GameManager
+            gameManager1.EndTurn();  // Panggil EndTurn untuk berpindah ke pemain berikutnya
+            gameManager1.EnableRollDice();  // Aktifkan fungsi roll dice di GameManager
             Debug.Log("Pemain selesai membuang kartu. Giliran berpindah.");
         }
 
@@ -232,43 +223,41 @@ public class Pemainnya : MonoBehaviour
     // Fungsi untuk mengocok dadu
     public void RollDice()
     {
-        lastDiceResult = UnityEngine.Random.Range(1, 7);  // Simpan hasil dadu
-        //lastDiceResult = 5;
+        lastDiceResult = Random.Range(1, 7);  // Simpan hasil dadu
         Debug.Log("Hasil dadu pemain " + playerData.Jurusan + ": " + lastDiceResult);
 
         // Update UI dadu di GameManager
-        gameManager.UpdateDiceImage(lastDiceResult);
+        gameManager1.UpdateDiceImage(lastDiceResult);
 
         // Proses hasil dadu
         HandleDiceResult(lastDiceResult);
     }
 
-    // Fungsi untuk menangani hasil dadu
+    
+
+    
+
+    // Fungsi untuk memproses hasil dadu
     void HandleDiceResult(int result)
     {
         switch (result)
         {
             case 1:
-                Debug.Log("Pemain tidak mendapat kartu/Skip giliran.");
+                TakeCardFromDeck(1);
                 break;
             case 2:
-                Debug.Log("Pemain mendapat 1 kartu.");
                 TakeCardFromDeck(1);
                 break;
             case 3:
-                Debug.Log("Pemain mendapat 2 kartu.");
-                TakeCardFromDeck(2);
+                TakeCardFromDeck(1);
                 break;
             case 4:
-                Debug.Log("Pemain tukar kartu.");
+                TakeCardFromDeck(1);
                 break;
             case 5:
-                Debug.Log("Pemain membuang kartu lawan.");
-                BuangKartuLawan();  // Ubah listener kartu ke kartu lawan
-                //NonAktifKkanBuangKartuLawan();
+                TakeCardFromDeck(1);
                 break;
             case 6:
-                Debug.Log("Pemain membuang kartu lawan & mendapat 1 kartu.");
                 TakeCardFromDeck(1);
                 break;
         }
@@ -277,103 +266,29 @@ public class Pemainnya : MonoBehaviour
         if (additionalTableCards.Count == 0)
         {
             Debug.Log("Meja tambahan kosong, giliran berpindah.");
-            gameManager.EndTurn();
+            gameManager1.EndTurn();
         }
         else
         {
-            gameManager.DisableRollDice();  // Nonaktifkan fungsi roll dice di GameManager
+            gameManager1.DisableRollDice();  // Nonaktifkan fungsi roll dice di GameManager
             Debug.Log("Masih ada kartu di meja tambahan, pemain harus membuang kartu sebelum giliran berpindah.");
         }
     }
-    public void BuangKartuLawan()
-    {
-        // Mengubah listener tombol kartu lawan untuk membuang kartu
-        foreach (var lawan in PemainLawan)
-        {
-            for (int i = 0; i < lawan.tableCardButtons.Length; i++)
-            {
-                int index = i;
-                lawan.tableCardButtons[i].onClick.RemoveAllListeners();
-                lawan.tableCardButtons[i].onClick.AddListener(() => lawan.DiscardCard(index));
-            }
-        }
-        Debug.Log("Listener kartu lawan diubah untuk membuang kartu.");
-    }
-
-    public void NonAktifKkanBuangKartuLawan()
-    {
-        // Menonaktifkan listener dari semua kartu lawan setelah buang kartu selesai
-        foreach (var lawan in PemainLawan)
-        {
-            foreach (var button in lawan.tableCardButtons)
-            {
-                button.onClick.RemoveAllListeners();
-           }
-            
-        }
-        foreach (var button in tableCardButtons)
-        {
-            button.onClick.RemoveAllListeners();
-        }
-
-        // Mengembalikan listener asli ke tombol kartu pemain sendiri
-        foreach (var lawan in PemainLawan)
-        {
-            lawan.AktifKanFungsiLain();
-        }
-        AktifKanFungsiLain();
-
-    }
-
-    public void AktifKanFungsiLain()
-    {
-        // Mengembalikan listener asli untuk kartu pemain
-        for (int i = 0; i < tableCardButtons.Length; i++)
-        {
-            int index = i;
-            tableCardButtons[i].onClick.RemoveAllListeners(); // Bersihkan listener sebelumnya
-            tableCardButtons[i].onClick.AddListener(() => OnCardClicked(index, true));
-        }
-
-        // Jika ada kartu tambahan, tambahkan listener juga
-        for (int i = 0; i < additionalTableCardButtons.Length; i++)
-        {
-            int index = i;
-            additionalTableCardButtons[i].onClick.RemoveAllListeners(); // Bersihkan listener sebelumnya
-            additionalTableCardButtons[i].onClick.AddListener(() => OnCardClicked(index, false));
-        }
-        Debug.Log("Listener kartu pemain dikembalikan ke fungsi asli.");
-    }
-
-    public void DiscardCard(int index)
-    {
-        // Fungsi ini dipanggil saat pemain membuang kartu lawan
-        if (index < tableCards.Count)
-        {
-            DekKartuBuang.sprite = tableCards[index].GbrKartu;
-            DekKartuBuang.gameObject.SetActive(true);
-            tableCards.RemoveAt(index);
-        }
-
-        UpdateTableUI();
-        NonAktifKkanBuangKartuLawan(); // Memanggil fungsi untuk mengembalikan listener asli setelah kartu lawan dibuang
-    }
-
 
     // Fungsi untuk mengambil kartu dari deck
     public void TakeCardFromDeck(int jumlahKartu)
     {
         for (int i = 0; i < jumlahKartu; i++)
         {
-            if (gameManager.deckStack.Count > 0)
+            if (gameManager1.deckStack.Count > 0)
             {
-                Kartunya kartu = gameManager.deckStack.Pop();
+                Kartunya kartu = gameManager1.deckStack.Pop();
                 ReceiveStartingCardToTable(kartu);  // Tambahkan kartu ke meja utama atau tambahan
             }
             else
             {
                 Debug.Log("Deck habis, tidak ada kartu yang bisa diambil.");
-                gameManager.DisableRollDice();  // Nonaktifkan fungsi roll dice di GameManager
+                gameManager1.DisableRollDice();  // Nonaktifkan fungsi roll dice di GameManager
                 return;  // Keluar dari loop
             }
         }
@@ -384,22 +299,4 @@ public class Pemainnya : MonoBehaviour
     {
         return isChoosingToDiscard;
     }
-
-    public void HitungScore()
-    {
-        Score = 0;
-        for (int i = 0; i < tableCards.Count; i++)
-        {
-            if (playerData.Jurusan == tableCards[i].JurKartu)
-            {
-                Score = Score + tableCards[i].NilaiKartu;
-            }
-            else
-            {
-                Score = Score - tableCards[i].NilaiKartu;
-            }
-        }
-
-    }
-
 }

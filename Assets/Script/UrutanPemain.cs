@@ -4,36 +4,45 @@ using UnityEngine;
 
 public class UrutanPemain : MonoBehaviour
 {
-    //Menyimpan List Player yang ada dalam Game
     [SerializeField]
-    private List <Pemain> ListPemain = new List<Pemain>();
+    private List<Pemain> ListPemain = new List<Pemain>();
 
-    //List Urutan Dari Player
     [SerializeField]
     private List<string> ListUrutanPemain = new List<string>();
 
-    //index Giliran Pemain
-    private int PemainSelanjutnya;
+    private int PemainSelanjutnya = 0;
 
+    // Method untuk mendapatkan ID pemain yang saat ini aktif
+    public string DapatkanPemainAktif()
+    {
+        return ListUrutanPemain[PemainSelanjutnya];
+    }
 
-    // Function Giliran Selanjutnya
-    
     public void NextPemain()
     {
-        //Index Giliran Pemain Harus Ditambah
+        // Index giliran pemain harus ditambah
         if (PemainSelanjutnya >= ListUrutanPemain.Count - 1)
         {
             PemainSelanjutnya = 0;
         }
         else
         {
-            PemainSelanjutnya = PemainSelanjutnya + 1;
+            PemainSelanjutnya++;
         }
 
-
-        //Memanggil Function Mainkan Giliran dari player dengan index pemain yang sedang bemain
-        Pemain player = ListPemain.Find(player => player.ID_Pemain == ListUrutanPemain[PemainSelanjutnya]);
-        player.MainkanGiliran();
-
+        // Mengaktifkan pemain yang sesuai dan mematikan yang lainnya
+        for (int i = 0; i < ListPemain.Count; i++)
+        {
+            Pemain pemain = ListPemain[i];
+            if (pemain.ID_Pemain == ListUrutanPemain[PemainSelanjutnya])
+            {
+                pemain.gameObject.SetActive(true);
+                pemain.MainkanGiliran(); // Memanggil fungsi MainkanGiliran
+            }
+            else
+            {
+                pemain.gameObject.SetActive(false);
+            }
+        }
     }
 }
